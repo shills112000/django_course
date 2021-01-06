@@ -1,0 +1,9 @@
+Name            Type   Description
+integers        int    whole numbers
+floating point  float  numbers with decimal points
+strings         str    ordered sequence of charectors eg "simon"
+lists           list   ordered sequence of ojects [10,"hello", 200.3]
+dictionaries    dict   unordered key:value pairs  {"mykey" : "value", "name" : "frankie"}
+tuples          tup    ordered immutable sequence of objects : (10, "hello", 200.3)
+sets            set    unordered collection of unique ojects ("a", "b")
+booleans        bool   logical value indicating true or false

@@ -1,0 +1,73 @@
+#!/usr/bin/python3.6
+
+import calendar
+import datetime
+
+#https://www.w3schools.com/python/python_datetime.asp
+
+x = datetime.datetime.now()
+#print(x)
+#print(x.year)
+#print(x.month)
+#print(x.day)
+#print(x.strftime("%A")) # FULL DAY
+#print(x.strftime("%b")) # short month
+#print(x.strftime("%B")) # full month
+# Show every month
+for month in range(1, 13):
+    cal = calendar.monthcalendar(2020, month)
+    first_week  = cal[0]
+    second_week = cal[1]
+    third_week  = cal[2]
+
+    # If a Tuesday presents in the first week, the second Tuesday
+    # is in the second week.  Otherwise, the second Tuesday must
+    # be in the third week.
+
+    if first_week[calendar.TUESDAY]:
+        patch_tuesday = second_week[calendar.TUESDAY]
+    else:
+        patch_tuesday = third_week[calendar.TUESDAY]
+
+#    print(f"patch_tuesday :{patch_tuesday}")
+#    print('%3s: %2s' % (calendar.month_abbr[month], patch_tuesday))
+
+
+def path_day_calc(day,month,year,patch_day_plus=0):    # = this puts a default value
+    print (f"day: {day}")
+    print (f"month: {month}")
+    print (f"year: {year}")
+    print (f"path_day_plus: {patch_day_plus}")
+    day = day + patch_day_plus
+    print (f"new patch day: {day}")
+    day = day + patch_day_plus
+    if ( month == 12) :
+        print ("set month to Jan 2021")
+        year +=1
+        month = 1
+        print (f"month: {month}")
+        print (f"year: {year}")
+    else:
+        month = month+1
+
+    cal = calendar.monthcalendar(year, month)
+    first_week  = cal[0]
+    second_week = cal[1]
+    third_week  = cal[2]
+
+    # If a Tuesday presents in the first week, the second Tuesday
+    # is in the second week.  Otherwise, the second Tuesday must
+    # be in the third week.
+
+    if first_week[calendar.TUESDAY]:
+        patch_tuesday = second_week[calendar.TUESDAY]
+    else:
+        patch_tuesday = third_week[calendar.TUESDAY]
+        patch_tuesday_plus_date = patch_day_plus + patch_tuesday
+    print(f"patch_tuesday = {patch_tuesday}")
+    print(f"patch_tuesday_plus_date = {patch_tuesday_plus_date}")
+    print(f"checking month = {month} ")
+    print(f"checking year = {year}")
+
+today_date = datetime.datetime.now()
+path_day_calc(today_date.day,12,today_date.year,2)

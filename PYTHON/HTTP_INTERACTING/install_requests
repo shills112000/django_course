@@ -1,0 +1,7 @@
+yum -y install python-pip
+
+check requests installed
+pip install requests
+
+/usr/local/bin/python3.7
+>>> import requests
