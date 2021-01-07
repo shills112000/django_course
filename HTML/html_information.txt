@@ -1,0 +1,13 @@
+html information
+
+html - hypertext markup language
+
+comments: <<!-- Comment -->
+
+html element tags : https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+
+
+Start tag	Element content	End tag
+<h1>	My First Heading	</h1>
+<p>	My first paragraph.	</p>
+
