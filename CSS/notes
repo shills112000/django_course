@@ -1,0 +1,8 @@
+CSS : cascading style sheet
+
+* styling affects color, font,size, borders
+
+* can define styling in HTML files, but more common to create 
+a seperate .css file then link to html file
+
+* https://www.w3schools.com/css/css_intro.asp

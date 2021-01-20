@@ -6,7 +6,21 @@
   </head>
  
   <body> 
-    <h1></h1>
+    <!-- method get, go to webpage after submit-->
+    <form action="https://www.bbc.co.uk" method="get">
+      <!-- use label with for notice label (for) and input (id) are the same-->
+      <label for="userinput">
+        Enter Input:
+      </label>
+      <input id="userinput" type="text" name="block1" value="hello">
+      <input id="userinput" type="text" name="block2" value="hello2">
+      
+      <!-- instead of value use placeholder eg don't have to remove in text box-->
+      <input id="userinput" type="text" name="block3" placeholder="Enter email here">
+      <!-- required it needs input to be able to submit-->
+      <input id="userinput" type="text" name="block3" placeholder="Enter text here" required>
+      <input type="submit" name="submit" value="submit">
+    </form>
   </body>
 </html>
 

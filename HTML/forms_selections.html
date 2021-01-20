@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <meta charset="utf-8">
+    <title>Forms and selections</title> 
+  </head>
+ 
+  <body> 
+    <h1>Forms and Seletions</h1>
+    <form action="" method="get">
+      <!-- radio button -->
+      <h3>Are you from UK or US?</h3>
+      <!-- to link radio buttons they must have the same name -->
+      <label for="inusa">Inside USA: </label>
+      <input id="inusa" type="radio" name="loc" value="USA">
+      <label for="inuk">Inside UK: </label>
+      <input id="inuk" type="radio" name="loc" value="UK">
+
+      <h3>How was the service?</h3>
+      <!-- drop down menu using select -->
+      <select name="stars" >
+        <option value="Great">3</option>
+        <option value="okay">2</option>
+        <option value="crap">1</option>
+      </select>
+      <p>Any other feedback?</p>
+      <!-- text area for larger text-->
+  
+      <textarea name="mytext1" cols="80" rows="8"></textarea>
+      <p></p>
+
+      <input type="submit" name="submit" value="submit">
+
+
+    </form>
+
+  </body>
+</html>
+
+<!--comment-->
