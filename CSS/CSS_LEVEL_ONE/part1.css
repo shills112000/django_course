@@ -1,0 +1,29 @@
+/* This is a comment */
+
+/*selected tag{
+    property: value;
+}*/
+
+/* google color picker for list of colors */
+
+h1{
+    color: blue;
+}
+
+li{
+    color: rgb(219, 130, 14);
+}
+
+p{
+    color: #9c9276;
+}
+
+/* rbga , a is transparent r= red b = blue g = green a= transparency = bettween 0 and 1 */
+
+h4{
+    color: rgba(255,97,0,0.5);
+}
+
+
+
+

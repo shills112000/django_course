@@ -1,0 +1,40 @@
+/* classes start with a . */
+
+
+.firstdiv{
+    color: red;
+}
+
+.seconddiv{
+    color: blue;
+}
+
+/* ids use # */
+
+#singleout{
+    color: blueviolet;
+    text-decoration: line-through;
+}
+
+/*  * use every element on page , override class ... uncommon to use 
+
+*{
+    color: black;
+}
+*/
+
+/* any unordered list next to h3 do the below */
+h3 + ul {
+    border: 4px dotted purple;
+}
+
+/* all anchor tags inside of a list */
+li a{
+    color: red;
+}
+
+/* any list with anchor tag with href */
+li a[href="www.bbc.co.uk"]{
+    color: blue;
+    border: 5px solid orange;
+}

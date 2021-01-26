@@ -1,0 +1,28 @@
+/* affect everything inside body */
+
+/*background-color and background are the same */
+
+body{
+    background: url(http://t1.gstatic.com/images?q=tbn:ANd9GcTNkeWFODn7v3t_Zzo1yDjq8cnDQVsCb1o4O-MNS_q3uuVdnDMGmg5buwzSCaVZ4ycE4Kd5UcHnQLRJWdjAOaA);
+    background-repeat: no-repeat;
+}
+
+/* border color / width/ style */
+div{
+    background-color: red;
+    border-color: blue;
+    border-width: thin;
+    border-style: dotted;
+}
+
+p{
+    color: yellow;
+}
+
+span{
+    color: black;
+    background-color: blue;
+}
+
+
+

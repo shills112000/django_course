@@ -1,0 +1,31 @@
+h1{
+    font-family: "arial";
+    text-align: center;
+}
+
+/* OS's have different fonts added */
+
+p{
+    font-family: italic;
+    font-weight: bold;
+    
+}
+
+body{
+    font-size: 20px;
+}
+
+/* id two has 2 times the size of the body(default size) */
+#two{
+    font-size: 2.0em;
+}
+
+
+/*
+1em = 16px  # :default
+2em = 32px 
+set font size in body for default
+em = element
+*/
+
+
