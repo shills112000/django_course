@@ -1,5 +1,6 @@
 def func():
-    print("func() ran in one.py")
+    print("func() ran in one.py" + __name__)
+
 
 print("top-level print inside of one.py")
 

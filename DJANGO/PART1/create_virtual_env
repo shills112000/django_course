@@ -1,0 +1,39 @@
+# https://www.liquidweb.com/kb/how-to-setup-a-python-virtual-environment-on-windows-10/
+
+1. Install python virtual enviroment package
+pip install virtualenv
+
+
+Start a cmd shell in virtual studio 
+1. cd to path where you want the virtual environment
+
+2. Create virtual enviroment 
+py -m venv project-name # in python project location
+
+3.Activate virtualenv 
+
+cd {location}\env\Scripts\activate.bat {env name} # in cmd shell command
+
+or install gitbash
+cd {location}\env\Scripts\
+source actiavate {env name}
+
+4. Install virtual env wrapper
+pip install VirtualEnvWrapper-win
+
+5. install django
+ py -m pip install Django
+
+6. colored terminal output
+ py -m pip install colorama
+
+7. proxy settings
+..\> set http_proxy=http://username:password@proxyserver:proxyport
+...\> set https_proxy=https://username:password@proxyserver:proxyport
+
+8. test it's runnning the
+ django-admin --version
+
+9. to deactivate enviroment:
+
+deactivate <envname>
