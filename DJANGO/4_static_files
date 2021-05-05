@@ -1,0 +1,48 @@
+1. in project folder create dir static/images
+
+drop jpg in this dir
+
+2. add to project settings DIR new static directory  in setting.py
+BASE_DIR = Path(__file__).resolve().parent.parent
+STATIC_DIR = os.path.join(BASE_DIR,"static")  # add this line to project settings
+
+later in file:
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.2/howto/static-files/
+
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [   # ADD THIS BIT
+    STATIC_DIR,
+]
+
+3. update templates/first_app/index.html 
+
+<!DOCTYPE html>
+{% load static %}
+<html> 
+  <head>
+    <meta charset="utf-8">
+    <title>Django GOOD BOY</title>
+    <link rel="stylesheet" href="{% static "css/mystyle.css" %}" />
+
+  </head>
+ 
+  <body> 
+      <h1> Hi this a pic of a lovely dog</h1>
+      <image src="{% static "images/dog.jpg" alt="Uh no! not here" %}">
+      
+  </body>
+
+
+
+  4. setup css under project static directory
+  mkdir css
+  touch mystyle.css
+  Add the following to the mystyle.css
+
+h1{
+    color: red;
+}
+

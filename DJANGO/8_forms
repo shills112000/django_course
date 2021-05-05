@@ -1,0 +1,122 @@
+Forms
+
+CSRF - cross site request forgery token which secures the HTTP post process on submition of a form
+{% csrf_token %}
+
+csrf token is required in django
+
+1. django-admin startproject basicforms
+
+2. cd basicforms; django-admin startapp basicapp 
+
+3. mkdir templates/basicapp in project folder (where html files goes) ; touch index.html ; touch forms.html
+Put dummy data in html's to start
+<!DOCTYPE html>
+
+<html> 
+  <head>
+    <meta charset="utf-8">
+    <title>FORMS</title>
+  </head>
+
+  <body> 
+      <h1> Welcome to home page</h1>     
+  </body>
+</html>
+
+
+4. Open settings in project
+# setup template dir for
+import os
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],   # ADD THIS ONE
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+5. Create forms in basicapp
+create file called forms.py
+
+from django import forms
+
+class FormName(forms.Form):
+    name = forms.CharField()
+    email = forms.EmailField()
+    text = forms.CharField(widget=forms.Textarea)
+
+6. update views in basicapp
+
+from django.shortcuts import render
+from . import forms
+# Create your views here.
+
+def index(request):
+    return render(request, 'basicapp/index.html')
+
+def form_name_view(request):
+    form =  forms.FormName()
+
+    if request.method == 'POST':
+        form = forms.FormName(request.POST)
+
+        if form.is_valid():
+            print ("Validation success!")
+            print("Name: " +form.cleaned_data['name'])
+            print("Email: " +form.cleaned_data['email'])
+            print("Text: " +form.cleaned_data['text'])
+
+    return render(request, 'basicapp/forms.html',{'form': form})
+
+7. update urls in project urls.py
+
+from django.contrib import admin
+from django.urls import path
+from basicapp import views
+from django.conf.urls import include, re_path
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    re_path(r'^$', views.index, name='index'),
+    path('formpage/',views.form_name_view,name='forms'),
+]
+
+8. setup template tagging 
+edit form.html in templates folder and
+<!DOCTYPE html>
+
+<html> 
+  <head>
+    <meta charset="utf-8">
+    <title>FORMS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+
+  <body> 
+      <h1> Fill out the form</h1>
+      <div class="container">
+        <form method = "post">
+          {{form.as_p}}
+          {% csrf_token %}
+          <input type = "submit" class="btn btn-primary" value="Submit">
+        
+        </form>
+        
+      </div> 
+      
+  </body>
+</html>
+
+9. start django
+cd project folder 
+
+python manage.py runserver

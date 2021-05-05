@@ -1,0 +1,56 @@
+1. create dir in project folder 
+mkdir templates/first_app
+cd templates/first_app
+touch index.html
+
+<!DOCTYPE html>
+<html> 
+  <head>
+    <meta charset="utf-8">
+    <title>First App</title> 
+  </head>
+ 
+  <body> 
+      <h1> hello this is index.html</h1>
+      {{ insert_me }}
+  </body>
+
+
+
+2. add to the settings.py in project folder
+import os
+
+then add to the DIRS beloew with the os.path.join
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],   # ADD THIS ONE
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+Now update APPS:
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'basicapp',
+]
+
+
+
+
+

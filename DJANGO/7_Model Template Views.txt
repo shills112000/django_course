@@ -1,0 +1,71 @@
+MTV - model template views.
+
+1.views.py file import any models we need to use.
+
+2. use the view to query the model for the data we need to
+
+3. Pass results from the model to the template
+
+4. edit template so it is ready to accept and display data from the models
+
+5. Map a url to the view.
+
+TESTING
+-------
+
+generate talbe on the index page 
+
+Table to display all webpages and access records from the access record database 
+
+We will use template tagging to connect the model to the html page.
+
+
+1. open first_app  view.py file 
+
+from django.shortcuts import render
+from django.http import HttpResponse
+from first_app.models import Topic,Webpage,AccessRecord  # MTV model
+
+
+def index(request):
+    webpages_list = AccessRecord.objects.order_by('date')  # orderby is like sql 
+    date_dict = {'access_records':webpages_list}
+    
+    return render(request,'first_app/index.html',context=date_dict)
+
+# Steps 1 and 2 of Model Template View completed
+
+2. edit the html in template/first_app/index.html dir of project
+
+<!DOCTYPE html>
+{% load static %}
+<html> 
+  <head>
+    <meta charset="utf-8">
+    <title>Django Level 2</title> 
+    <link rel="stylesheet" href="{% static "css/mystyle.css" %}" />
+  </head>
+ 
+  <body> 
+      <h1> Hi Welcome to django level 2</h1>
+      <h2> Here are your access records</h2>
+      <div class="djangotwo">
+        {% if access_records %}
+          <table>
+            <thead>
+              <th>Site Name</th>
+              <th>Date Accessed</th>
+            </thead>
+         
+          {% for acc in access_records %}
+          <tr>
+            <td>{{ acc.name }}</td>
+            <td>{{ acc.date }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+        {% else %}
+        <p>No access records found.</p>
+        {% endif %}
+      </div>
+  </body>

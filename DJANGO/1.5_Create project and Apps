@@ -1,0 +1,65 @@
+# create project
+
+django-admin startproject first_project
+
+# delete project
+
+Just rm the directory
+
+# Run manage python
+(env) python manage.py runserver
+
+
+# create new app
+python manage.py startapp first_app
+
+# add in new app to settings.py files
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'first_app',
+]
+
+# create a view 
+
+views.py
+
+from django.http import HttpResponse
+
+def index (request):
+    return HttpResponse("Hello World")
+
+# edit urls.py in project to add the urls.py 
+
+
+from django.contrib import admin
+from django.urls import path
+from first_app import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('index/', views.index,name='index'),
+]
+
+
+Migrate database 
+================
+
+(cd into project directory)
+python manage.py migrate
+
+Register database to application
+================================
+(cd into project directory)
+python manage.py makemigrations first_app
+
+Open a python shell 
+================================
+
+create dummy data into sql database created
+python manage.py shell 
+

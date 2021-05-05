@@ -1,0 +1,23 @@
+use include functions
+---------------------
+
+1. add the following to projects url.py files
+from django.conf.urls import include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('first_app/',include('first_app.urls')), # THIS ONE
+]
+
+2. in the application first_app  create file urls.py
+
+from django.conf.urls import url
+from first_app import views
+from django.urls import path
+from django.conf.urls import include
+
+urlpatterns = [
+    path('index/',views.index,name='index'),
+]
+
+accessed from : http://127.0.0.1:8000/first_app/index/
