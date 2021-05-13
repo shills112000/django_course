@@ -3,26 +3,16 @@
 <html> 
   <head>
     <meta charset="utf-8">
-    <title>Django Level 2</title> 
+    <title>Home</title> 
     <link rel="stylesheet" href="{% static "css/mystyle.css" %}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
  
   <body> 
-      <h1> Hi Welcome to django level 2</h1>
-      <h2> Here are your User Records</h2>
-      <div class="djangotwo">
-        {% if user_data %}
-          <ol>
-            {% for acc in user_data %}
-              <li>User Info
-                <ul>First Name: {{ acc.first_name }}</ul>
-                <ul>Last Name: {{ acc.last_name }}</ul>
-                <ul>Email: {{ acc.email }}</ul>
-              </li>
-            {% endfor %}
-        </ol>
-        {% else %}
-        <p>No access records found.</p>
-        {% endif %}
+    <div class = "container">
+      <div class = "jumbotron">
+        <h1> Hi Welcome</h1>
+        <h2> Goto /users sign up!</h2>
       </div>
+    </div>
   </body>

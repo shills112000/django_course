@@ -1,11 +1,21 @@
 from django.shortcuts import render
-from first_app.models import User
+#from first_app.models import User
+#from django.http import HttpResponse
+from first_app.forms import NewUserForm
 
-# Create your views here.
-from django.http import HttpResponse
+def index(request): 
+    return render(request,'first_app/index.html')
 
-def index(request):
-    user_list = User.objects.order_by('last_name')  # orderby is like sql 
-    user_dict = {'user_data':user_list}
+def users(request):
+    form = NewUserForm()
+
+    if request.method == 'POST':
+        form = NewUserForm(request.POST)
+        # check validation of
+        if form.is_valid():
+            form.save(commit=True) # save to database
+            return index(request)
+        else:
+            print ('error form invalid')   # if form post is incorrect
     
-    return render(request,'first_app/index.html',context=user_dict)
+    return render (request,'first_app/users.html',{'form':form})

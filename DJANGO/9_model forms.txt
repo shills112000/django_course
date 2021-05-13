@@ -1,0 +1,6 @@
+how to save form to a model 
+
+Forms.ModelForm  # this allows create form from a model
+
+
+Working on PART2_PROJECT  project . For
