@@ -1,0 +1,57 @@
+https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#ref-templates-builtins-filters
+
+# customer filters
+
+1. create in app layer
+
+new folder - create templatetags 
+
+create file in templatetags called : __init__.py  # treat as a module (eg load it in)
+
+Create another file called my_extras.py in templatetags
+
+from django import template
+register = template.Library()
+
+@register.filter(name='cut')  # use a decorator
+def cut(value,arg):
+    """
+    This cuts all value of arg from string
+    """
+    return value.replace(arg,"")
+
+#register.filter('cut',cut)  #First paramter 'cut' is the string , second paramter is the function cut
+
+update view.py
+from django.shortcuts import render
+
+# Create your views here.
+def index(request):
+    context_dict={'text': 'hello', 'number': 100}  # added dictionary
+    return render(request,'basic_app/index.html',context_dict)  # returned dictionary context_dict
+
+def other(request):
+    return render(request,'basic_app/other.html')
+
+def relative(request):
+    return render(request,'basic_app/relative_url_templates.html')
+
+
+#Update index.html 
+
+<!DOCTYPE html>
+{% extends "basic_app/base.html" %}
+    {% block body_block%}
+
+    <h1>Hello and welcome to the site!</h1>
+    <h1>This is the index.html page</h1>
+    {{ text|cut:'hello' }} <!-- uppercase filter-->
+    {{ number|add:"2" }} <!-- Add 2 to value using filter add-->
+    {% endblock %}
+
+
+
+
+
+
+

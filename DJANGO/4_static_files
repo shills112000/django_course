@@ -17,6 +17,10 @@ STATICFILES_DIRS = [   # ADD THIS BIT
     STATIC_DIR,
 ]
 
+MEDIA_DIR = os.path.join(BASE_DIR,"media")  # add this line to project setting
+MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = '/media/'
+
 3. update templates/first_app/index.html 
 
 <!DOCTYPE html>

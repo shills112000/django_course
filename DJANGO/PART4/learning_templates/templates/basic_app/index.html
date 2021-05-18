@@ -4,5 +4,6 @@
 
     <h1>Hello and welcome to the site!</h1>
     <h1>This is the index.html page</h1>
-
+    {{ text|cut:'hello' }} <!-- uppercase filter-->
+    {{ number|add:"2" }} <!-- Add 2 to value using filter add-->
     {% endblock %}
