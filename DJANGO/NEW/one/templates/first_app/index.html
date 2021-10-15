@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% load static %}
+<html> 
+  <head>
+    <meta charset="utf-8">
+    <title>Django GOOD BOY</title>
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}" />
+  </head>
+ 
+  <body> 
+      <h1> Hi this a pic of a lovely dog</h1>
+      <image src="{% static 'images/dog.jpg' alt="Uh no! not here" %}">
+      <p> {{ insert_me }}  </p>
+      <p> {{ insert_me2 }} </p>
+  </body>
